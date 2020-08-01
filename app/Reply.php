@@ -23,9 +23,9 @@ class Reply extends Model
         return $this->hasMany(Like::class, 'reply_id');
     }
 
-    public function getPathAttribute()
+    public function getLikeAttribute()
     {
-        return asset("api/{$this->question->slug}/reply/$this->id");
+        return asset("api/like/$this->id");
     }
 
 }
