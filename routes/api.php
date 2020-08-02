@@ -22,3 +22,17 @@ Route::apiResource('/{question}/reply','ReplyController');
 
 Route::post('like/{reply}','LikeController@likeit')->name('reply.like');
 Route::delete('like/{reply}','LikeController@unlikeit')->name('reply.unlike');
+
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'auth'
+
+], function ($router) {
+
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+
+});
