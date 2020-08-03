@@ -10,6 +10,12 @@ window.Vue = require('vue');
 
 import Vuetify from "./plugins/vuetify";
 import User from './Helpers/User'
+import VueSimplemde from 'vue-simplemde'
+import md from 'marked';
+window.md = md;
+
+Vue.component('vue-simplemde', VueSimplemde)
+
 
 window.User = User
 
