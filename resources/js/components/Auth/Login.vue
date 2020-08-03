@@ -17,6 +17,9 @@
           type="password"
         ></v-text-field>
 
+        <router-link to="/signup">
+          <v-btn class="mr-4" color="blue"> Sign Up </v-btn>
+        </router-link>
         <v-btn class="mr-4" color="green" type="submit">Login</v-btn>
         <v-btn @click="clear">Clear</v-btn>
       </form>
@@ -34,7 +37,11 @@ export default {
       },
     };
   },
-
+  created(){
+    if(User.loggedin()){
+      this.$router.push({name: 'forum'})
+    }
+  },
   methods: {
     submit() {
       User.login(this.form)
