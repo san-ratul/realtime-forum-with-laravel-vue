@@ -9,13 +9,17 @@ import Signup from '../components/Auth/Signup.vue'
 import Forum from '../components/Forum/Forum.vue'
 import Read from '../components/Forum/Read.vue'
 import Create from '../components/Forum/Create.vue'
+import CreateCategory from '../components/Category/CreateCategory.vue'
+import CategoryQuestions from '../components/Category/CategoryQuestions.vue'
 const routes = [
     { path: '/login', component: Login },
     { path: '/logout', component: Logout },
     { path: '/signup', component: Signup },
     { path: '/forum', component: Forum, name: 'forum' },
     { path: '/ask', component: Create, name: 'ask' },
+    { path: '/category', component: CreateCategory },
     { path: '/question/:slug', component: Read, name: 'read' },
+    { path: '/category/:slug', component: CategoryQuestions },
 ]
 
 const router = new VueRouter({

@@ -15,6 +15,11 @@ class Category extends Model
 
     public function getPathAttribute()
     {
-        return asset("api/category/$this->slug");
+        return "category/$this->slug";
+    }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
     }
 }

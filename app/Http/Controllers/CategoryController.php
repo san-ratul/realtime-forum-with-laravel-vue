@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\QuestionResource;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -16,7 +17,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return CategoryResource::collection(Category::latest()->get());
+        $categories = CategoryResource::collection(Category::all());
+        $categories = $categories->sortByDesc('noOfQuesions');
+        return $categories;
     }
 
 
@@ -33,7 +36,7 @@ class CategoryController extends Controller
             'slug' => str_slug($request->name),
         ]);
 
-        return response('Created', Response::HTTP_CREATED);
+        return response(new CategoryResource($category), Response::HTTP_CREATED);
     }
 
     /**
@@ -44,7 +47,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return new CategoryResource($category);
+        $data = QuestionResource::collection($category->questions);
+        return response(['data' => $data,'category'=>$category],Response::HTTP_ACCEPTED);
     }
 
     /**
@@ -61,7 +65,7 @@ class CategoryController extends Controller
             'slug' => str_slug($request->name),
         ]);
 
-        return response('updated', Response::HTTP_ACCEPTED);
+        return response(new CategoryResource($category), Response::HTTP_ACCEPTED);
     }
 
     /**
