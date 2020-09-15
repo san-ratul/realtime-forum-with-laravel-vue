@@ -2,7 +2,7 @@
 
 <v-container fluid grid-list-md>
     <v-layout row wrap>
-        <v-flex xs8 class="m-auto">
+        <v-flex s8 class="m-auto">
             <v-toolbar color="cyan" class="mb-3" dark dense>
                 <v-toolbar-title>
                     <v-app-bar-nav-icon>

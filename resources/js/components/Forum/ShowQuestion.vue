@@ -7,7 +7,7 @@
             </div>
             
             <v-spacer></v-spacer>
-            <v-btn class="white--text" color="teal"> {{ question.replies }} replies </v-btn>
+            <v-btn class="white--text" color="teal"> {{ question.replies_count }} replies </v-btn>
         </v-card-title>
         <v-card-subtitle class="pb-0">Asked by: {{ question.user }} - {{ question.created_at }} Category: {{question.category}}</v-card-subtitle>
         <div class="mb-2"></div>

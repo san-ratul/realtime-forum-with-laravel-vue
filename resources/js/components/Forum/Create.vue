@@ -7,14 +7,12 @@
         :items="categories"
         item-text="name"
         item-value="id"
-        hide-no-data
-        hide-selected
         label="Category"
         placeholder="Start typing to Search"
         prepend-icon="mdi-database-search"
       ></v-autocomplete>
 
-      <vue-simplemde v-model="form.body"/>
+      <vue-simplemde preview-class="markdown-body" v-model="form.body"/>
 
       <v-btn class="mr-4" color="green" type="submit">Create</v-btn>
     </form>
@@ -33,13 +31,13 @@ export default {
                 category_id: null,
                 body: null,
             },
-            categories: {},
+            categories: [],
             errors: {},
         }
     },
     created(){
         axios.get('/api/category')
-        .then(res => this.categories = res.data.data)
+        .then(res => this.categories = res.data)
     },
     methods: {
         submit() {

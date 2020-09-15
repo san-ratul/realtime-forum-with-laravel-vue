@@ -32,7 +32,7 @@ class Question extends Model
 
     public function replies()
     {
-        return $this->hasMany(Reply::class, 'question_id');
+        return $this->hasMany(Reply::class, 'question_id')->latest();
     }
 
     public function getPathAttribute()
