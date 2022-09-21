@@ -30,7 +30,7 @@
     "dependencies": {
         "vue-router": "^3.3.4",
         "vue-simplemde": "^1.1.2",
-        "vuetify": "^2.3.7",
+        "vuetify": "^2.6.10",
         "vuetify-loader": "^1.6.0"
     }
 }
